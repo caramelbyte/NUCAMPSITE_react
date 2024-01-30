@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, NavbarBrand, Container } from 'reactstrap'; // Added Container to the import
-import NucampLogo from './app/assets/img/logo.png';
+import NucampLogo from '../app/assets/img/logo.png';
 
 const Header = () => { // Changed {header} to ()
     return (
