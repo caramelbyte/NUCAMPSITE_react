@@ -6,7 +6,7 @@ import SubHeader from '../components/SubHeader';
 const CampsitesDirectoryPage = () => {
     return (
         <Container>
-            <SubHeader current={campsite.name} detail={true} />
+        <SubHeader current= 'Directory' />
             <CampsitesList />
         </Container>
     );
