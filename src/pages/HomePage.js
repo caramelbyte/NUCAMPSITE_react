@@ -1,4 +1,5 @@
 import React from 'react';
+import SubHeader from '../components/SubHeader';
 import { Container } from 'reactstrap';
 import DisplayList from '../features/display/DisplayList';
 
