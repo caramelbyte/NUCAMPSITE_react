@@ -4,7 +4,6 @@ import Comment from './Comment';
 import CommentForm from './CommentForm'; // Import CommentForm
 import { selectCommentsByCampsiteId } from './commentsSlice';
 
-
 const CommentsList = ({ campsiteId }) => {
     const comments = selectCommentsByCampsiteId(campsiteId);
 

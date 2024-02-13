@@ -1,19 +1,27 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, Col } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectCampsiteById } from '../../features/campsites/campsitesSlice';
+import CampsiteDetail from '../../features/campsites/CampsiteDetail';
+import CommentsList from '../../features/comments/CommentsList';
+import SubHeader from '../../components/SubHeader';
 
-const CampsiteDetail = ( {campsite} ) => {
-    const { image, name, description } = campsite;
+
+const CampsiteDetailPage = () => {
+    const { campsiteId } = useParams();
+    // Use useSelector to access Redux state
+    const campsite = useSelector(state => selectCampsiteById(state, campsiteId));
 
     return (
-        <Col md='5' className='m-1'>
-            <Card>
-                <CardImg top src={image} alt={name} />
-                <CardBody>
-                    <CardText>{description}</CardText>
-                </CardBody>
-            </Card>
-        </Col>
+        <Container>
+            <SubHeader current={campsite?.name} detail={true} />
+            <Row>
+                <CampsiteDetail campsite={campsite} />
+                <CommentsList campsiteId={campsiteId} />
+            </Row>
+        </Container>
     );
 };
 
-export default CampsiteDetail;
+export default CampsiteDetailPage;

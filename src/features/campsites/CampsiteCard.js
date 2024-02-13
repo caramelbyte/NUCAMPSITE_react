@@ -8,7 +8,7 @@ const CampsiteCard = ({ campsite }) => {
 
     return (
         // Wrap Card component in Link component
-        <Link to={`/${id}`}>
+        <Link to={`/campsites/${id}`}>
             <Card>
                 <CardImg
                     width="100%"
