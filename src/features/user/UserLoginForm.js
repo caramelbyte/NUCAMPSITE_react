@@ -9,9 +9,11 @@ import {
     Label,
     Button
 } from 'reactstrap';
+// Import ErrorMessage along with Field, Form from formik
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import defaultAvatar from '../../app/assets/img/unicorn.png';
-import validateUserLoginForm from './validateUserLoginForm'; 
+// Import the validateUserLoginForm function
+import validateUserLoginForm from './validateUserLoginForm'; // Adjust the import path as necessary
 
 const UserLoginForm = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -56,7 +58,7 @@ const UserLoginForm = () => {
           <Formik
             initialValues={{ username: '', password: '' }}
             onSubmit={handleLogin}
-            validate={validateUserLoginForm}
+            validate={validateUserLoginForm} // Add the validate prop
           >
             <Form>
               <FormGroup>
@@ -76,4 +78,21 @@ const UserLoginForm = () => {
                   id='password'
                   name='password'
                   type='password'
-                  placeholder='
+                  placeholder='Password'
+                  className='form-control'
+                />
+                {/* Add ErrorMessage for password */}
+                <ErrorMessage name='password' component='div' className='form-error' />
+              </FormGroup>
+              <Button type='submit' color='primary'>
+                Login
+              </Button>
+            </Form>
+          </Formik>
+        </ModalBody>
+      </Modal>
+    </>
+  );
+};
+
+export default UserLoginForm;
